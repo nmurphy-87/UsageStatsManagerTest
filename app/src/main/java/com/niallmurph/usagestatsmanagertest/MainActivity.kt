@@ -120,7 +120,6 @@ fun ShowUsageStats(context: Context){
     val totalScreenTimeForPreviousWeek = ScreenTimeCalculator(context = context).getScreenTimeForPreviousWeek()
     val totalScreenTimeForPreviousMonth = ScreenTimeCalculator(context = context).getScreenTimeForPreviousMonth()
     val totalScreenTimeBreakdownForPreviousWeek = ScreenTimeCalculator(context = context).getScreenTimeBreakdownForPreviousWeek()
-    val totalScreenTimeBreakdownForPreviousMonth = ScreenTimeCalculator(context = context).getScreenTimeBreakdownForPreviousMonth()
 
     Text("Total for Current Day : ${formatScreenTime(totalScreenTimeForCurrentDay)}")
     Text("Total for Previous Week : ${formatScreenTime(totalScreenTimeForPreviousWeek)}")
@@ -128,10 +127,6 @@ fun ShowUsageStats(context: Context){
     Divider(modifier = Modifier.padding(vertical = 8.dp, horizontal = 2.dp), thickness = 2.dp)
     totalScreenTimeBreakdownForPreviousWeek.forEach {
         Text("Day : ${convertLongToDay(it.timestamp)} - Total Time : ${formatScreenTime(it.totalScreenTime)}")
-    }
-    Divider(modifier = Modifier.padding(vertical = 8.dp, horizontal = 2.dp), thickness = 2.dp)
-    totalScreenTimeBreakdownForPreviousMonth.forEach {
-        Text("Week : ${convertLongToWeekRange(it.timestamp)} - Total Time : ${formatScreenTime(it.totalScreenTime)}")
     }
 
 
